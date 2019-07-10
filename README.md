@@ -20,7 +20,7 @@ The public key belonging to GITBOT_SSH_PRIVATE_KEY needs be configured as `Deplo
 Following a small sample how you use it in your .gitlab-ci.yml 
 ```yml
 rebase: 
-  image: tegonal/gitbot
+  image: tegonal/gitlab-git
   script:
     - git ...
 ```
@@ -51,7 +51,7 @@ Call it as follows (note the `. ` before `/scripts/...` which is necessary so th
 
 ```yml
 rebase: 
-  image: tegonal/gitbot
+  image: tegonal/gitlab-git
   script:
     - . /scripts/clone-current.sh
     - git ...
