@@ -1,6 +1,6 @@
 # Tegonal gitlab-git
 
-Docker image which helps to carry out git specific tasks.
+Docker image which helps to carry out git specific tasks (available from Docker Hub under [tegonal/gitlab-git](https://hub.docker.com/r/tegonal/gitlab-git)).
 It is tailored for [GitLab](https://gitlab.com) but can be used in other contexts as well.
 
 # Basic Setup
