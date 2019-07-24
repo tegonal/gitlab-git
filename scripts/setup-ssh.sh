@@ -22,6 +22,7 @@ ssh-keyscan $GITBOT_HOST >> gitlab-known-hosts
 cat gitlab-known-hosts >> ~/.ssh/known_hosts
 git config --global user.email "$GITBOT_EMAIL"
 git config --global user.name "$GITBOT_USER_NAME"
+git config --global --list
 
 export GITBOT_REPO_URL=`echo $CI_REPOSITORY_URL | perl -pe 's#.*@(.+?(\:\d+)?)/#git@\1:#'`
 echo "GITBOT_REPO_URL: $GITBOT_REPO_URL"
