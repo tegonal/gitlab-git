@@ -30,8 +30,9 @@ In case you use already another image, then you can resort to download the shell
 ```yml
 rebase: 
   image: your/image
+  variables:
+   - PREFIX: "https://raw.githubusercontent.com/tegonal/gitlab-git/master/scripts"
   script:
-    - PREFIX="https://raw.githubusercontent.com/tegonal/gitlab-git/master/scripts"
     - curl \
       -O "$PREFIX/setup-ssh.sh" \
       -O "$PREFIX/setup-ssh.sh.sha256" \
