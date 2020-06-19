@@ -31,14 +31,18 @@ In case you use already another image, then you can resort to download the shell
 rebase: 
   image: your/image
   script:
-    - wget https://raw.githubusercontent.com/tegonal/gitlab-git/master/scripts/setup-ssh.sh
-    - wget https://raw.githubusercontent.com/tegonal/gitlab-git/master/scripts/clone-current.sh
+    - PREFIX="https://raw.githubusercontent.com/tegonal/gitlab-git/master/scripts"
+    - curl \
+      -O "$PREFIX/setup-ssh.sh" \
+      -O "$PREFIX/setup-ssh.sh.sha256" \
+      -O "$PREFIX/clone-current.sh" \
+      -O "$PREFIX/clone-current.sh.sha256"
+    - sha256sum -c ./*.sha256 
     - chmod +x setup-ssh.sh clone-current.sh
     - . ./setup-ssh.sh
     - . ./clone-current.sh
     - git ...
 ```
-
 
 # Additional Scripts
 
