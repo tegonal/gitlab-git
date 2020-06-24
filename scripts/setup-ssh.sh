@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-if ! [[  ${CI_REPOSITORY_URL?is required} =~ .*@.+ ]] ; then
+if ! [[  "${CI_REPOSITORY_URL?is required}" =~ .*@.+ ]] ; then
   echo "CI_REPOSITORY_URL needs to match .*@.+, was '$CI_REPOSITORY_URL'"
   exit 1
 fi
