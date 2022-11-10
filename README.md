@@ -25,7 +25,7 @@ rebase:
     - git ...
 ```
 
-In case you use already another image, then you can resort to download the shell scripts instead (note the `. ` before `./...` which is necessary so that the script runs in the same bash).
+In case you use already another image, then you can resort to download the shell scripts instead (note the `source ` before `./...` which is necessary so that the script runs in the same bash).
 
 ```yml
 rebase: 
@@ -40,8 +40,8 @@ rebase:
       -O "$PREFIX/clone-current.sh.sha256"
     - sha256sum -c ./*.sha256 
     - chmod +x setup-ssh.sh clone-current.sh
-    - . ./setup-ssh.sh
-    - . ./clone-current.sh
+    - source ./setup-ssh.sh
+    - source ./clone-current.sh
     - git ...
 ```
 

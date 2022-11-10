@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL maintainer Tegonal GmbH <info@tegonal.com>
+LABEL maintainer Tegonal Genossenschaft <info@tegonal.com>
 
 RUN apk add --update git openssh-client bash perl
 
@@ -13,4 +13,4 @@ ADD scripts /scripts
 RUN chmod +x /scripts/setup-ssh.sh
 RUN chmod +x /scripts/clone-current.sh
 
-ENTRYPOINT ["/scripts/setup-ssh.sh"]
+ENTRYPOINT ["/scripts/setup-ssh-bin-bash.sh"]

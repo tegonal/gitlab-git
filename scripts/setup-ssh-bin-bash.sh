@@ -12,19 +12,10 @@ set -euo pipefail
 shopt -s inherit_errexit
 unset CDPATH
 
-if [[ -z $CI_COMMIT_REF_NAME ]] ; then
-    echo "$CI_COMMIT_REF_NAME is required"
-    exit 1
+if ! [[ -v scriptsDir ]]; then
+	scriptsDir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" >/dev/null && pwd 2>/dev/null)"
+	readonly scriptsDir
 fi
+source "$scriptsDir/setup-ssh.sh"
 
-if [[ -z $GITBOT_REPO_URL ]] ; then
-    echo "$GITBOT_REPO_URL is required"
-    exit 1
-fi
-
-echo "git clone --depth 1 --single-branch --branch $CI_COMMIT_REF_NAME $GITBOT_REPO_URL"
-git clone --depth 1 --single-branch --branch "$CI_COMMIT_REF_NAME" "$GITBOT_REPO_URL"
-cd "$CI_PROJECT_NAME"
-echo "================ last commit =================="
-git --no-pager log
-echo "==============================================="
+/bin/bash
